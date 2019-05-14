@@ -7,6 +7,9 @@ import com.paas.template.demo.service.ITemplatedemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * 不受事务管理，封装复杂的业务逻辑
+ */
 @Service
 public class ITemplatedemoManageImpl implements ITemplatedemoManage {
     @Autowired

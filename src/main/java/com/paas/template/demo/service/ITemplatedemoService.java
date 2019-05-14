@@ -1,8 +1,8 @@
 package com.paas.template.demo.service;
 
 import com.github.pagehelper.PageInfo;
+import com.paas.framework.db.DataSource;
 import com.paas.template.demo.model.Templatedemo;
-//import com.bbtree.framework.page.PaginationSupport;
 
 public interface ITemplatedemoService {
 
@@ -10,6 +10,7 @@ public interface ITemplatedemoService {
 
     void update(Templatedemo record);
 
+    @DataSource("slave")
     PageInfo<Templatedemo> queryPage(Templatedemo record, int currentPage, int pageSize);
 
     Templatedemo selectById(Integer id);

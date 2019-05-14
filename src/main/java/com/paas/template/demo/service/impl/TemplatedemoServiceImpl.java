@@ -12,6 +12,9 @@ import com.paas.template.demo.dao.TemplatedemoMapper;
 import com.paas.template.demo.model.Templatedemo;
 import com.paas.template.demo.service.ITemplatedemoService;
 
+/**
+ * 事务管理层，每个方法应该尽量简洁，执行时间短
+ */
 @Service
 public class TemplatedemoServiceImpl implements ITemplatedemoService {
 
