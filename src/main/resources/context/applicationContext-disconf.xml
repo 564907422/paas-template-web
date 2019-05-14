@@ -15,7 +15,7 @@
 	</bean>
 	<!-- 使用disconf必须添加以下配置 -->
 	<bean id="disconfMgrBean" class="com.baidu.disconf.client.DisconfMgrBean" destroy-method="destroy">
-		<property name="scanPackage" value="com.bbtree.crypt.conf,com.bbtree.session.conf,com.bbtree.template.conf" />
+		<property name="scanPackage" value="com.paas.framework.session.conf,com.paas.template.conf" />
 	</bean>
 	<bean id="disconfMgrBean2" class="com.baidu.disconf.client.DisconfMgrBeanSecond" init-method="init" destroy-method="destroy">
 	</bean>

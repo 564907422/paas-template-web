@@ -1,268 +1,269 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.paas.template.demo.dao.TemplatedemoMapper" >
-  <resultMap id="BaseResultMap" type="com.paas.template.demo.model.Templatedemo" >
-    <id column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="depart_id" property="departId" jdbcType="INTEGER" />
-    <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="gender" property="gender" jdbcType="CHAR" />
-    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
-    <result column="identity" property="identity" jdbcType="CHAR" />
-    <result column="join_time" property="joinTime" jdbcType="VARCHAR" />
-    <result column="is_marry" property="isMarry" jdbcType="INTEGER" />
-    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
-    <result column="school" property="school" jdbcType="VARCHAR" />
-    <result column="profession" property="profession" jdbcType="VARCHAR" />
-    <result column="work_time" property="workTime" jdbcType="VARCHAR" />
-    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
-    <result column="address" property="address" jdbcType="VARCHAR" />
-    <result column="roles" property="roles" jdbcType="VARCHAR" />
-    <result column="order_no" property="orderNo" jdbcType="INTEGER" />
-    <result column="status" property="status" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="create_user" property="createUser" jdbcType="INTEGER" />
-    <result column="account_status" property="accountStatus" jdbcType="INTEGER" />
-    <result column="station" property="station" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.paas.template.demo.dao.TemplatedemoMapper">
+    <resultMap id="BaseResultMap" type="com.paas.template.demo.model.Templatedemo">
+        <id column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="depart_id" property="departId" jdbcType="INTEGER"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="gender" property="gender" jdbcType="CHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="identity" property="identity" jdbcType="CHAR"/>
+        <result column="join_time" property="joinTime" jdbcType="VARCHAR"/>
+        <result column="is_marry" property="isMarry" jdbcType="INTEGER"/>
+        <result column="id_card" property="idCard" jdbcType="VARCHAR"/>
+        <result column="school" property="school" jdbcType="VARCHAR"/>
+        <result column="profession" property="profession" jdbcType="VARCHAR"/>
+        <result column="work_time" property="workTime" jdbcType="VARCHAR"/>
+        <result column="birthday" property="birthday" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="roles" property="roles" jdbcType="VARCHAR"/>
+        <result column="order_no" property="orderNo" jdbcType="INTEGER"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="create_user" property="createUser" jdbcType="INTEGER"/>
+        <result column="account_status" property="accountStatus" jdbcType="INTEGER"/>
+        <result column="station" property="station" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     user_id, depart_id, email, password, name, gender, mobile, identity, join_time, is_marry, 
     id_card, school, profession, work_time, birthday, address, roles, order_no, status, 
     create_time, create_user, account_status, station
   </sql>
-  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from sys_user
-    where user_id = #{userId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteById" parameterType="java.lang.Integer" >
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteById" parameterType="java.lang.Integer">
     delete from sys_user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-  
-  <insert id="insert" parameterType="com.paas.template.demo.model.Templatedemo" >
-    insert into sys_user
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="userId != null" >
-        user_id,
-      </if>
-      <if test="departId != null" >
-        depart_id,
-      </if>
-      <if test="email != null" >
-        email,
-      </if>
-      <if test="password != null" >
-        password,
-      </if>
-      <if test="name != null" >
-        name,
-      </if>
-      <if test="gender != null" >
-        gender,
-      </if>
-      <if test="mobile != null" >
-        mobile,
-      </if>
-      <if test="identity != null" >
-        identity,
-      </if>
-      <if test="joinTime != null" >
-        join_time,
-      </if>
-      <if test="isMarry != null" >
-        is_marry,
-      </if>
-      <if test="idCard != null" >
-        id_card,
-      </if>
-      <if test="school != null" >
-        school,
-      </if>
-      <if test="profession != null" >
-        profession,
-      </if>
-      <if test="workTime != null" >
-        work_time,
-      </if>
-      <if test="birthday != null" >
-        birthday,
-      </if>
-      <if test="address != null" >
-        address,
-      </if>
-      <if test="roles != null" >
-        roles,
-      </if>
-      <if test="orderNo != null" >
-        order_no,
-      </if>
-      <if test="status != null" >
-        status,
-      </if>
-      <if test="createTime != null" >
-        create_time,
-      </if>
-      <if test="createUser != null" >
-        create_user,
-      </if>
-      <if test="accountStatus != null" >
-        account_status,
-      </if>
-      <if test="station != null" >
-        station,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="userId != null" >
-        #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="departId != null" >
-        #{departId,jdbcType=INTEGER},
-      </if>
-      <if test="email != null" >
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="gender != null" >
-        #{gender,jdbcType=CHAR},
-      </if>
-      <if test="mobile != null" >
-        #{mobile,jdbcType=VARCHAR},
-      </if>
-      <if test="identity != null" >
-        #{identity,jdbcType=CHAR},
-      </if>
-      <if test="joinTime != null" >
-        #{joinTime,jdbcType=VARCHAR},
-      </if>
-      <if test="isMarry != null" >
-        #{isMarry,jdbcType=INTEGER},
-      </if>
-      <if test="idCard != null" >
-        #{idCard,jdbcType=VARCHAR},
-      </if>
-      <if test="school != null" >
-        #{school,jdbcType=VARCHAR},
-      </if>
-      <if test="profession != null" >
-        #{profession,jdbcType=VARCHAR},
-      </if>
-      <if test="workTime != null" >
-        #{workTime,jdbcType=VARCHAR},
-      </if>
-      <if test="birthday != null" >
-        #{birthday,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null" >
-        #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="roles != null" >
-        #{roles,jdbcType=VARCHAR},
-      </if>
-      <if test="orderNo != null" >
-        #{orderNo,jdbcType=INTEGER},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createUser != null" >
-        #{createUser,jdbcType=INTEGER},
-      </if>
-      <if test="accountStatus != null" >
-        #{accountStatus,jdbcType=INTEGER},
-      </if>
-      <if test="station != null" >
-        #{station,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateById" parameterType="com.paas.template.demo.model.Templatedemo" >
-    update sys_user
-    <set >
-      <if test="departId != null" >
-        depart_id = #{departId,jdbcType=INTEGER},
-      </if>
-      <if test="email != null" >
-        email = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="gender != null" >
-        gender = #{gender,jdbcType=CHAR},
-      </if>
-      <if test="mobile != null" >
-        mobile = #{mobile,jdbcType=VARCHAR},
-      </if>
-      <if test="identity != null" >
-        identity = #{identity,jdbcType=CHAR},
-      </if>
-      <if test="joinTime != null" >
-        join_time = #{joinTime,jdbcType=VARCHAR},
-      </if>
-      <if test="isMarry != null" >
-        is_marry = #{isMarry,jdbcType=INTEGER},
-      </if>
-      <if test="idCard != null" >
-        id_card = #{idCard,jdbcType=VARCHAR},
-      </if>
-      <if test="school != null" >
-        school = #{school,jdbcType=VARCHAR},
-      </if>
-      <if test="profession != null" >
-        profession = #{profession,jdbcType=VARCHAR},
-      </if>
-      <if test="workTime != null" >
-        work_time = #{workTime,jdbcType=VARCHAR},
-      </if>
-      <if test="birthday != null" >
-        birthday = #{birthday,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null" >
-        address = #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="roles != null" >
-        roles = #{roles,jdbcType=VARCHAR},
-      </if>
-      <if test="orderNo != null" >
-        order_no = #{orderNo,jdbcType=INTEGER},
-      </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createUser != null" >
-        create_user = #{createUser,jdbcType=INTEGER},
-      </if>
-      <if test="accountStatus != null" >
-        account_status = #{accountStatus,jdbcType=INTEGER},
-      </if>
-      <if test="station != null" >
-        station = #{station,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where user_id = #{userId,jdbcType=INTEGER}
-  </update>
-  
 
-<select id="queryPage" resultMap="BaseResultMap" parameterType="com.paas.template.demo.model.Templatedemo" >
-    select 
-    <include refid="Base_Column_List" />
-    from sys_user
-    </select></mapper>
+    <insert id="insert" parameterType="com.paas.template.demo.model.Templatedemo">
+        insert into sys_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="departId != null">
+                depart_id,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="identity != null">
+                identity,
+            </if>
+            <if test="joinTime != null">
+                join_time,
+            </if>
+            <if test="isMarry != null">
+                is_marry,
+            </if>
+            <if test="idCard != null">
+                id_card,
+            </if>
+            <if test="school != null">
+                school,
+            </if>
+            <if test="profession != null">
+                profession,
+            </if>
+            <if test="workTime != null">
+                work_time,
+            </if>
+            <if test="birthday != null">
+                birthday,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="roles != null">
+                roles,
+            </if>
+            <if test="orderNo != null">
+                order_no,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="accountStatus != null">
+                account_status,
+            </if>
+            <if test="station != null">
+                station,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="departId != null">
+                #{departId,jdbcType=INTEGER},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=CHAR},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="identity != null">
+                #{identity,jdbcType=CHAR},
+            </if>
+            <if test="joinTime != null">
+                #{joinTime,jdbcType=VARCHAR},
+            </if>
+            <if test="isMarry != null">
+                #{isMarry,jdbcType=INTEGER},
+            </if>
+            <if test="idCard != null">
+                #{idCard,jdbcType=VARCHAR},
+            </if>
+            <if test="school != null">
+                #{school,jdbcType=VARCHAR},
+            </if>
+            <if test="profession != null">
+                #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="workTime != null">
+                #{workTime,jdbcType=VARCHAR},
+            </if>
+            <if test="birthday != null">
+                #{birthday,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="roles != null">
+                #{roles,jdbcType=VARCHAR},
+            </if>
+            <if test="orderNo != null">
+                #{orderNo,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=INTEGER},
+            </if>
+            <if test="accountStatus != null">
+                #{accountStatus,jdbcType=INTEGER},
+            </if>
+            <if test="station != null">
+                #{station,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateById" parameterType="com.paas.template.demo.model.Templatedemo">
+        update sys_user
+        <set>
+            <if test="departId != null">
+                depart_id = #{departId,jdbcType=INTEGER},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                gender = #{gender,jdbcType=CHAR},
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="identity != null">
+                identity = #{identity,jdbcType=CHAR},
+            </if>
+            <if test="joinTime != null">
+                join_time = #{joinTime,jdbcType=VARCHAR},
+            </if>
+            <if test="isMarry != null">
+                is_marry = #{isMarry,jdbcType=INTEGER},
+            </if>
+            <if test="idCard != null">
+                id_card = #{idCard,jdbcType=VARCHAR},
+            </if>
+            <if test="school != null">
+                school = #{school,jdbcType=VARCHAR},
+            </if>
+            <if test="profession != null">
+                profession = #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="workTime != null">
+                work_time = #{workTime,jdbcType=VARCHAR},
+            </if>
+            <if test="birthday != null">
+                birthday = #{birthday,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="roles != null">
+                roles = #{roles,jdbcType=VARCHAR},
+            </if>
+            <if test="orderNo != null">
+                order_no = #{orderNo,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=INTEGER},
+            </if>
+            <if test="accountStatus != null">
+                account_status = #{accountStatus,jdbcType=INTEGER},
+            </if>
+            <if test="station != null">
+                station = #{station,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where user_id = #{userId,jdbcType=INTEGER}
+    </update>
+
+
+    <select id="queryPage" resultMap="BaseResultMap" parameterType="com.paas.template.demo.model.Templatedemo">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_user
+    </select>
+</mapper>

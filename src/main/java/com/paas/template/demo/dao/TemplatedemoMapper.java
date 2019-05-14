@@ -17,7 +17,5 @@ public interface TemplatedemoMapper {
 
 	Templatedemo selectById(Integer id);
 
-//	List<Templatedemo> queryPage(
-//            @Param("pageBean") PaginationSupport ps,
-//            @Param("vo") Templatedemo record);
+	List<Templatedemo> queryPage(@Param("vo") Templatedemo record);
 }

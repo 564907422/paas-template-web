@@ -12,7 +12,7 @@
         http://www.springframework.org/schema/aop/spring-aop-4.2.xsd 
 		http://www.ryantenney.com/schema/metrics
     	http://www.ryantenney.com/schema/metrics/metrics.xsd
-        http://www.springframework.org/schema/tx  
+        http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 
 	<!-- 注解探测器 -->
@@ -144,7 +144,7 @@
 	<!-- 通过扫描的模式,自动注入bean -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-		<property name="basePackage" value="com.bbtree.*.*.dao" />
+		<property name="basePackage" value="com.paas.*.*.dao" />
 	</bean>
 
 
